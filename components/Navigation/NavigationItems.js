@@ -128,9 +128,7 @@ class NavigationItems extends Component {
     event.preventDefault();
     this.props.onSearch(names.user_id)
     console.log('emp', names.user_id);
-    // this.setState({employee_id: names.user_id});
-    // console.log('info', names)
-    // console.log('user_id', names.user_id)
+    this.setState({show: false})
   }
   componentDidMount() {
     document.addEventListener("mousedown", this.handleClickOutside);
@@ -161,11 +159,6 @@ class NavigationItems extends Component {
     const searchEmployees = ([] = this.props.searchEmployees || []);
     const userProfile  = ({} = this.props.userProfile || {});
     
-    
-      
-    // const full_name = searchEmployees.map((searchEmployee) =>
-    //     console.log(searchEmployee.first_name + " "  + searchEmployee.last_name)
-    // )
     const filteredNames = searchEmployees.filter((searchEmployee) =>  searchEmployee.first_name ? searchEmployee.first_name.toLowerCase().includes(this.state.search.toLowerCase()) : null);
 
     const handlerButtonClick = () => {
@@ -177,19 +170,11 @@ class NavigationItems extends Component {
       });
     };
 
-    // const handlerButtonClickSearch = () => {
-    //   this.setState(state => {
-    //     return {
-    //       show: !state.show
-    //     };
-    //   });
-    // };
-
     return (
-      <nav>
+      <nav ref={this.container}>
         <StyleUL>
           <StyledLI>
-              <StyledDropdown ref={this.container}>
+              <StyledDropdown >
                 <StyledA >
                   <StyledInput
                     value = {this.state.search}

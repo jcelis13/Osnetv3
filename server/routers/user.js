@@ -29,7 +29,7 @@ router.post('/api/auth/login', async (req, res) => {
       company_id: userProfile.company_id,
     }
     res.cookie('token', userData, COOKIE_OPTIONS);
-    res.status(200).json({userData, userProfile});
+    res.status(200).json({searchEmployee,userData, userProfile});
   } catch(error) {
     res.json(error)
   } 
@@ -42,7 +42,6 @@ router.post('/api/auth/search_employee', async (req, res) => {
     const searchSpecificEmployee = await userModel.getSpecificEmployee(req.body.employee_user_id)
     console.log(searchSpecificEmployee.user_id)
     res.status(200).json({searchSpecificEmployee});
-    console.log(userData1)
   }catch(error){
     res.status(404);
   }
