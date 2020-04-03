@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
+import Calendar from "../../components/Calendar/index"
 
 const StyledContainer = styled.div`
   margin-top: 20px;
@@ -36,6 +37,7 @@ class TimeLogs extends React.Component {
     const userSchedule = ({} = this.props.userSchedule || {});
     return (
       <StyledContainer>
+        <Calendar/>
         <StyledTable>
           <tr>
             <StyledTh colSpan="4">Time Logs</StyledTh>
