@@ -8,6 +8,7 @@ const StyledContainer = styled.div`
   padding: 5px;
 `;
 const StyledTable = styled.table`
+  margin-top: 10px;
   width: 100%;
   border: solid 1px #ddeeee;
   border-collapse: collapse;
@@ -38,6 +39,7 @@ class TimeLogs extends React.Component {
     return (
       <StyledContainer>
         <Calendar/>
+        
         <StyledTable>
           <tr>
             <StyledTh colSpan="4">Time Logs</StyledTh>

@@ -37,7 +37,8 @@ const Team = ({ teams }) => (
     <StyledContainer>
         { teams.map(team => (
             <StyledTeam key={team.id}>
-            <StyledImg src= {team.profile_picture ? url + team.profile_picture : url + 'default-profile.png' } />
+            {/* <StyledImg src= {team.profile_picture ? url + team.profile_picture : url + 'default-profile.png' } /> */}
+            <StyledImg src="/static/default-profile.png"/>
             <StyledSpan >{team.full_name}</StyledSpan>
             </StyledTeam>
         ))}

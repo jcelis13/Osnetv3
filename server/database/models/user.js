@@ -141,7 +141,7 @@ userModelAndConnection.getUserTransactions = (user_id) => {
 
 userModelAndConnection.getUserSchedule = (user_id) => {
   return new Promise((resolve, reject) => {
-    pool.query('SELECT team_scheduler.* from team_scheduler INNER JOIN team_member ON team_scheduler.team_id = team_member.team_id WHERE team_member.user_id = ? AND team_member.active = 1 ', [user_id], function (error, result, fields) {
+    pool.query(`Select * from employee_schedule where user_id = ?`, [user_id], function (error, result, fields) {
       if(error){
         return reject(error)
       }
